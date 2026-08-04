@@ -6,7 +6,7 @@
     <meta name="google-site-verification" content="pm9PpBNy-UqfuCGq5Ai-0YF0PBjmZcumySzkn931buA" />
     <meta name="description" content="SEDU - Infraestructura de seguridad digital e inteligencia para el sistema escolar chileno.">
     <title>SEDU | Sentinel Edu</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -29,899 +29,286 @@
         }
 
         *, *::before, *::after {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
-
-        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Open Sans', sans-serif;
             color: var(--text-dark);
-            background-color: var(--bg-light);
+            background-color: #FAFCFC;
             line-height: 1.6;
         }
 
-        h1, h2, h3, h4 {
+        h1, h2, h3, .logo-text {
             font-family: 'Montserrat', sans-serif;
-            color: var(--primary-dark);
         }
 
-        /* HEADER & NAV */
-        .site-header {
+        header {
             background-color: var(--white);
-            padding: 0.8rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             box-shadow: var(--shadow-sm);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        .logo-container {
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
             display: flex;
             align-items: center;
             gap: 12px;
             text-decoration: none;
         }
 
-        .logo-img {
-            height: 48px;
-            width: 48px;
-            border-radius: 50%;
-            object-fit: cover;
+        .logo img {
+            height: 45px;
+            width: auto;
         }
 
         .logo-text {
             font-size: 1.5rem;
             font-weight: 800;
-            color: var(--primary);
-            display: flex;
-            flex-direction: column;
-            line-height: 1.1;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        .logo-text span {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--text-gray);
-            letter-spacing: 1px;
+            color: var(--primary-dark);
+            letter-spacing: -0.5px;
         }
 
-        .cta-nav {
-            background-color: var(--accent);
-            color: var(--white);
-            padding: 10px 24px;
-            border-radius: 30px;
+        .logo-text span {
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
             text-decoration: none;
+            color: var(--text-dark);
             font-weight: 600;
+            font-size: 0.95rem;
             transition: var(--transition);
         }
 
-        .cta-nav:hover,
-        .cta-nav:focus-visible {
-            background-color: var(--accent-hover);
-            transform: translateY(-2px);
-            outline: 2px solid var(--accent);
+        nav a:hover {
+            color: var(--primary);
         }
 
-        /* HERO SECTION */
+        .btn-header {
+            background-color: var(--primary);
+            color: var(--white) !important;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            transition: var(--transition);
+        }
+
+        .btn-header:hover {
+            background-color: var(--primary-dark);
+        }
+
         .hero {
             background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
             color: var(--white);
+            padding: 5rem 2rem;
             text-align: center;
-            padding: 80px 5% 120px;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
         }
 
-        .hero-logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin-bottom: 25px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            object-fit: cover;
+        .hero-container {
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .hero h1 {
-            color: var(--white);
-            font-size: 3rem;
-            max-width: 900px;
-            margin: 0 auto 20px;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
             line-height: 1.2;
         }
 
         .hero p {
             font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            font-weight: 400;
-            opacity: 0.95;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
         }
 
-        /* BADGES INTERACTIVOS */
-        .interactive-badges-section {
-            padding: 0 5% 40px;
-            margin-top: -60px;
-            position: relative;
-            z-index: 10;
+        .btn-cta {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--white);
+            text-decoration: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
         }
 
-        .badges-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
+        .btn-cta:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .features {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 5rem auto;
+            padding: 0 2rem;
         }
 
-        .badge-card-link {
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 3rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 2.5rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid #EAEAEA;
             text-decoration: none;
             color: inherit;
             display: flex;
-            border-radius: 16px;
-            transition: var(--transition);
-        }
-
-        .badge-card {
-            background: var(--white);
-            border-radius: 16px;
-            padding: 25px 20px;
-            text-align: center;
-            box-shadow: var(--shadow-md);
-            border-bottom: 4px solid var(--accent);
-            transition: var(--transition);
-            width: 100%;
-            display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
-        .badge-card-link:hover .badge-card,
-        .badge-card-link:focus-visible .badge-card {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-            background: var(--primary-dark);
-        }
-
-        .badge-card-link:hover .badge-card h3,
-        .badge-card-link:hover .badge-card p,
-        .badge-card-link:focus-visible .badge-card h3,
-        .badge-card-link:focus-visible .badge-card p {
-            color: var(--white);
-        }
-
-        .badge-icon {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .badge-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-            transition: color 0.3s;
-        }
-
-        .badge-card p {
-            font-size: 0.85rem;
-            color: var(--text-gray);
-            transition: color 0.3s;
-        }
-
-        .badge-btn-text {
-            display: inline-block;
-            margin-top: 15px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
-
-        /* ABOUT (AJUSTADO PARA MANTENER 3 COLUMNAS EN UNA SOLA FILA) */
-        .about {
-            padding: 35px 5% 45px;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .about h2 { 
-            font-size: 1.8rem; 
-            margin-bottom: 10px; 
-        }
-
-        .about .lead {
-            font-size: 1.05rem;
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .about p {
-            font-size: 0.92rem;
-            line-height: 1.5;
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Fuerza siempre 3 columnas en computadores */
-            gap: 18px;
-            margin-top: 25px;
-        }
-
-        .value-card {
-            background: var(--white);
-            padding: 18px 15px;
-            border-radius: 12px;
-            box-shadow: var(--shadow-sm);
-            border-bottom: 3px solid var(--primary-light);
-            cursor: pointer;
-            transition: var(--transition);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 160px;
-        }
-
-        .value-card h3 {
-            font-size: 1rem;
-            margin-bottom: 4px;
-        }
-
-        .value-card p {
-            font-size: 0.82rem;
-            color: var(--text-gray);
-        }
-
-        .value-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-            border-bottom-color: var(--accent);
-            background: #FAFFFF;
-        }
-
-        .value-card::after {
-            content: "🔍 Haz clic para ampliar";
-            display: block;
-            margin-top: 10px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: var(--primary);
-            opacity: 0.85;
-        }
-
-        .value-icon {
-            color: var(--accent);
-            font-size: 1.5rem;
-            margin-bottom: 6px;
-            display: block;
-        }
-
-        /* FEATURES (INTERACTIVAS) */
-        .features {
-            background-color: var(--white);
-            padding: 70px 5%;
-        }
-
-        .features-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .features-header h2 { font-size: 2.3rem; color: var(--primary-dark); }
-
-        .features-subheading {
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 10px auto;
-            color: var(--text-gray);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 18px;
-            padding: 22px;
-            background: var(--bg-light);
-            border-radius: 16px;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .feature-item:hover {
+        .card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-md);
             border-color: var(--primary-light);
-            background: var(--white);
         }
 
-        .feature-item::after {
-            content: "🔍 Haz clic para ampliar";
-            position: absolute;
-            bottom: 8px;
-            right: 15px;
-            font-size: 0.72rem;
-            font-weight: 700;
-            color: var(--primary);
-            opacity: 0.8;
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
-        .feature-icon {
-            background: var(--primary);
-            color: var(--white);
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            flex-shrink: 0;
-            font-weight: bold;
-        }
-
-        .feature-content h3 {
-            margin-bottom: 6px;
+        .card h3 {
             color: var(--primary-dark);
-            font-size: 1.05rem;
+            margin-bottom: 1rem;
         }
 
-        .feature-content p {
-            font-size: 0.9rem;
+        .card p {
             color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
         }
 
-        .highlight-text {
+        .card-link {
             color: var(--primary);
             font-weight: 600;
+            font-size: 0.9rem;
         }
 
-        /* MODAL DE AMPLIACIÓN */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(26, 77, 76, 0.85);
-            backdrop-filter: blur(4px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-            padding: 20px;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .modal-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 35px;
-            max-width: 650px;
-            width: 100%;
-            box-shadow: var(--shadow-lg);
-            position: relative;
-            transform: scale(0.8);
-            transition: transform 0.3s ease;
-            border-top: 6px solid var(--accent);
-        }
-
-        .modal-overlay.active .modal-card {
-            transform: scale(1);
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            background: none;
-            border: none;
-            font-size: 2rem;
-            color: var(--text-gray);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .modal-close:hover {
-            color: var(--accent);
-        }
-
-        .modal-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .modal-icon {
-            font-size: 2.2rem;
-            background: var(--bg-light);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-title {
-            font-size: 1.4rem;
-            color: var(--primary-dark);
-        }
-
-        .modal-body {
-            font-size: 0.95rem;
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        .modal-body ul {
-            margin-top: 12px;
-            padding-left: 20px;
-        }
-
-        .modal-body li {
-            margin-bottom: 6px;
-            color: var(--text-gray);
-        }
-
-        /* IMPACTO */
-        .impact {
-            padding: 70px 5%;
+        footer {
             background-color: var(--primary-dark);
             color: var(--white);
             text-align: center;
+            padding: 2rem;
+            margin-top: 5rem;
         }
 
-        .impact h2 {
-            color: var(--accent);
-            font-size: 2.3rem;
-            margin-bottom: 15px;
-        }
-
-        .impact-intro {
-            font-size: 1.1rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .impact-stats {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            margin-top: 35px;
-            flex-wrap: wrap;
-        }
-
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: var(--accent);
-            line-height: 1;
-        }
-
-        .stat-text {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-top: 8px;
-        }
-
-        /* FOOTER */
-        .site-footer {
-            background-color: #113332;
-            color: var(--white);
-            text-align: center;
-            padding: 45px 5%;
-        }
-
-        .footer-logo {
-            width: 75px;
-            height: 75px;
-            border-radius: 50%;
-            margin-bottom: 12px;
-            object-fit: cover;
-        }
-
-        .footer-slogan {
-            margin-bottom: 10px;
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        .social-links {
-            margin: 20px 0;
-            display: flex;
-            justify-content: center;
-            gap: 18px;
-        }
-
-        .social-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--white);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .social-btn:hover,
-        .social-btn:focus-visible {
-            background-color: var(--accent);
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(255, 127, 80, 0.4);
-            outline: none;
-        }
-
-        .copyright-text {
-            opacity: 0.7;
-            font-size: 0.85rem;
-        }
-
-        /* RESPONSIVO */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .hero { padding: 60px 5% 80px; }
-            .impact-stats { flex-direction: column; gap: 25px; }
-            .about h2, .features-header h2, .impact h2 { font-size: 1.6rem; }
-        }
-
-        @media (max-width: 600px) {
-            .values-grid {
-                grid-template-columns: 1fr; /* Pasa a 1 sola columna en dispositivos móviles */
-            }
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-    <header class="site-header">
-        <a href="WEB.SEDU.html" class="logo-container" aria-label="Volver al inicio - SEDU Sentinel Edu">
-            <img src="logo.png" alt="Logotipo oficial de SEDU" class="logo-img" width="48" height="48">
-            <div class="logo-text">
-                SEDU <span>SENTINEL EDU</span>
-            </div>
-        </a>
-        <a href="#contacto" class="cta-nav">Solicitar Piloto</a>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Logo SEDU">
+                <div class="logo-text">SEDU <span>| Sentinel Edu</span></div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="MAS.SEGURIDAD.html">Seguridad</a></li>
+                    <li><a href="RESPALDO.REAL.html">Respaldo</a></li>
+                    <li><a href="CONTINUIDAD.EDUCATIVA.html">Continuidad</a></li>
+                    <li><a href="TRANQUILIDAD.PARA.TODOS.html" class="btn-header">Tranquilidad</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
         <section class="hero">
-            <img src="logo.png" alt="SEDU Sentinel Edu Logo" class="hero-logo" width="120" height="120">
-            <h1>El estándar de infraestructura de seguridad digital para el sistema escolar chileno</h1>
-            <p>Transformamos la gestión de incidentes en tiempo real, garantizando la continuidad educativa y el bienestar socioemocional sin recurrir a vigilancia invasiva. Protege lo que más importa.</p>
-        </section>
-
-        <!-- SECCIÓN DE BADGES -->
-        <section class="interactive-badges-section" aria-label="Secciones de detalle sobre la solución SEDU">
-            <div class="badges-grid">
-                <a href="MAS.SEGURIDAD.html" class="badge-card-link">
-                    <article class="badge-card">
-                        <div>
-                            <span class="badge-icon" aria-hidden="true">🛡️</span>
-                            <h3>Más Seguridad</h3>
-                            <p>Haz clic para ver el detalle de la tecnología Edge AI.</p>
-                        </div>
-                        <span class="badge-btn-text">Ver detalle &rarr;</span>
-                    </article>
-                </a>
-
-                <a href="CONTINUIDAD.EDUCATIVA.html" class="badge-card-link">
-                    <article class="badge-card">
-                        <div>
-                            <span class="badge-icon" aria-hidden="true">🎓</span>
-                            <h3>Continuidad Educativa</h3>
-                            <p>Haz clic para ver cómo evitamos la suspensión de clases.</p>
-                        </div>
-                        <span class="badge-btn-text">Ver detalle &rarr;</span>
-                    </article>
-                </a>
-
-                <a href="TRANQUILIDAD.PARA.TODOS.html" class="badge-card-link">
-                    <article class="badge-card">
-                        <div>
-                            <span class="badge-icon" aria-hidden="true">🤝</span>
-                            <h3>Tranquilidad para Todos</h3>
-                            <p>Haz clic para conocer nuestros estándares éticos.</p>
-                        </div>
-                        <span class="badge-btn-text">Ver detalle &rarr;</span>
-                    </article>
-                </a>
-
-                <a href="RESPALDO.REAL.html" class="badge-card-link">
-                    <article class="badge-card">
-                        <div>
-                            <span class="badge-icon" aria-hidden="true">📑</span>
-                            <h3>Respaldo Real</h3>
-                            <p>Haz clic para ver la información sobre reportes legales.</p>
-                        </div>
-                        <span class="badge-btn-text">Ver detalle &rarr;</span>
-                    </article>
-                </a>
+            <div class="hero-container">
+                <h1>Infraestructura de seguridad digital e inteligencia escolar</h1>
+                <p>Protegiendo la información y la continuidad educativa del sistema escolar chileno con tecnología de vanguardia.</p>
+                <a href="MAS.SEGURIDAD.html" class="btn-cta">Conocer las soluciones</a>
             </div>
         </section>
 
-        <!-- QUIÉNES SOMOS COMPACTO -->
-        <section class="about">
-            <h2>¿QUIÉNES SOMOS?</h2>
-            <p class="lead">Somos SEDU, un proyecto chileno que nace con el propósito de transformar la seguridad y la convivencia escolar a través de la tecnología.</p>
-            <p>Creemos en entornos educativos más seguros, tranquilos y preparados, donde la tecnología sea un apoyo real para estudiantes, docentes y comunidades. Nuestro objetivo es simple: <strong>construir espacios escolares más seguros para un mejor futuro.</strong></p>
-            
-            <div class="values-grid">
-                <article class="value-card" onclick="openModal('compromiso')">
-                    <div>
-                        <span class="value-icon" aria-hidden="true">🎓</span>
-                        <h3>Compromiso</h3>
-                        <p>Con el bienestar y la continuidad educativa.</p>
-                    </div>
-                </article>
-
-                <article class="value-card" onclick="openModal('innovacion')">
-                    <div>
-                        <span class="value-icon" aria-hidden="true">💡</span>
-                        <h3>Innovación</h3>
-                        <p>Aplicando tecnología inteligente al servicio de la educación.</p>
-                    </div>
-                </article>
-
-                <article class="value-card" onclick="openModal('trabajoEquipo')">
-                    <div>
-                        <span class="value-icon" aria-hidden="true">👥</span>
-                        <h3>Trabajo en Equipo</h3>
-                        <p>Uniendo seguridad, IA, psicología y visión social.</p>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- POR QUÉ ELEGIRNOS INTERACTIVO -->
         <section class="features">
-            <div class="features-header">
-                <h2>¿POR QUÉ ELEGIRNOS?</h2>
-                <p class="features-subheading">Somos más que tecnología, somos <span class="highlight-text">un aliado estratégico</span> para la seguridad y el bienestar de tu comunidad educativa.</p>
-            </div>
-
-            <div class="features-grid">
-                <article class="feature-item" onclick="openModal('tec')">
-                    <div class="feature-icon" aria-hidden="true">🧠</div>
-                    <div class="feature-content">
-                        <h3>TECNOLOGÍA INTELIGENTE</h3>
-                        <p>Edge AI con procesamiento local para detección en tiempo real, incluso sin internet. <span class="highlight-text">Latencia cero, respuesta inmediata.</span></p>
+            <h2 class="section-title">Nuestros Pilares Fundamentales</h2>
+            <div class="grid">
+                <a href="MAS.SEGURIDAD.html" class="card">
+                    <div>
+                        <div class="card-icon">🛡️</div>
+                        <h3>Más Seguridad</h3>
+                        <p>Protección avanzada de datos y privacidad para estudiantes y comunidades educativas.</p>
                     </div>
-                </article>
+                    <span class="card-link">Saber más &rarr;</span>
+                </a>
 
-                <article class="feature-item" onclick="openModal('priv')">
-                    <div class="feature-icon" aria-hidden="true">🛡️</div>
-                    <div class="feature-content">
-                        <h3>PRIVACIDAD ÉTICA</h3>
-                        <p>Cumplimos con normativas internacionales de protección de datos (GDPR) sin reconocimiento facial. Seguridad efectiva <span class="highlight-text">sin invadir la privacidad</span>.</p>
+                <a href="RESPALDO.REAL.html" class="card">
+                    <div>
+                        <div class="card-icon">💾</div>
+                        <h3>Respaldo Real</h3>
+                        <p>Sistemas de copia de seguridad automatizados e infraestructura resiliente.</p>
                     </div>
-                </article>
+                    <span class="card-link">Saber más &rarr;</span>
+                </a>
 
-                <article class="feature-item" onclick="openModal('equipo')">
-                    <div class="feature-icon" aria-hidden="true">🤝</div>
-                    <div class="feature-content">
-                        <h3>EQUIPO MULTIDISCIPLINARIO</h3>
-                        <p>Expertos en seguridad (OS-10), IA, psicología y ámbito legal trabajando juntos para <span class="highlight-text">proteger lo que más importa.</span></p>
+                <a href="CONTINUIDAD.EDUCATIVA.html" class="card">
+                    <div>
+                        <div class="card-icon">🔄</div>
+                        <h3>Continuidad Educativa</h3>
+                        <p>Garantía de disponibilidad operativa sin interrupciones del servicio educativo.</p>
                     </div>
-                </article>
+                    <span class="card-link">Saber más &rarr;</span>
+                </a>
 
-                <article class="feature-item" onclick="openModal('gemelo')">
-                    <div class="feature-icon" aria-hidden="true">🗺️</div>
-                    <div class="feature-content">
-                        <h3>GEMELO DIGITAL 3D</h3>
-                        <p>Mapas tácticos en 3D para equipos de emergencia (GOPE), una función <span class="highlight-text">única en la seguridad tradicional</span>.</p>
+                <a href="TRANQUILIDAD.PARA.TODOS.html" class="card">
+                    <div>
+                        <div class="card-icon">🤝</div>
+                        <h3>Tranquilidad para Todos</h3>
+                        <p>Confianza total para directivos, docentes, apoderados y alumnos.</p>
                     </div>
-                </article>
-
-                <article class="feature-item" onclick="openModal('respaldo')">
-                    <div class="feature-icon" aria-hidden="true">📋</div>
-                    <div class="feature-content">
-                        <h3>RESPALDO INSTITUCIONAL</h3>
-                        <p>Reportes forenses trazables que respaldan a directivos ante Fiscalía o Superintendencia. <span class="highlight-text">Transparencia y respaldo legal.</span></p>
-                    </div>
-                </article>
-
-                <article class="feature-item" onclick="openModal('inversion')">
-                    <div class="feature-icon" aria-hidden="true">📈</div>
-                    <div class="feature-content">
-                        <h3>INVERSIÓN INTELIGENTE</h3>
-                        <p>Evita pérdidas por falsas alertas y suspensión de clases. Protege la subvención por asistencia y <span class="highlight-text">asegura la continuidad educativa.</span></p>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- VENTANA EMERGENTE (MODAL REUTILIZABLE) -->
-        <div class="modal-overlay" id="featureModal" onclick="closeModalOnOverlay(event)">
-            <div class="modal-card">
-                <button class="modal-close" onclick="closeModal()">&times;</button>
-                <div class="modal-header">
-                    <div class="modal-icon" id="modalIcon">🧠</div>
-                    <h3 class="modal-title" id="modalTitle">Título</h3>
-                </div>
-                <div class="modal-body" id="modalBody">
-                    Cargando información...
-                </div>
-            </div>
-        </div>
-
-        <section class="impact">
-            <h2>Nuestro Impacto Proyectado</h2>
-            <p class="impact-intro">No somos una empresa de cámaras, somos una plataforma integral de <strong>Inteligencia, Respuesta y Respaldo</strong>.</p>
-            
-            <div class="impact-stats">
-                <div class="stat-box">
-                    <div class="stat-number">80%</div>
-                    <div class="stat-text">Reducción en suspensión de<br>clases por incidentes no gestionados</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number">30</div>
-                    <div class="stat-text">Liceos protegidos de forma integral<br>durante el primer año</div>
-                </div>
+                    <span class="card-link">Saber más &rarr;</span>
+                </a>
             </div>
         </section>
     </main>
 
-    <footer class="site-footer" id="contacto">
-        <img src="logo.png" alt="Logo SEDU Pie de Página" class="footer-logo" width="75" height="75">
-        <p class="footer-slogan">INTELIGENCIA QUE PROTEGE, TECNOLOGÍA QUE TRANSFORMA.</p>
-        
-        <div class="social-links">
-            <a href="https://www.instagram.com/sentineledu?igsh=dnVmaWV6NnZ5b3Np" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Síguenos en Instagram">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-            </a>
-            <a href="https://www.tiktok.com/@sentinel.edu?_r=1&_t=ZS-98YZkSrCfrh" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Síguenos en TikTok">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
-            </a>
-        </div>
-
-        <p class="copyright-text">&copy; 2026 Sentinel Edu (SEDU). Desarrollado para la protección escolar en Chile.</p>
+    <footer>
+        <p>&copy; 2026 SEDU | Sentinel Edu - Todos los derechos reservados.</p>
     </footer>
 
-    <!-- SCRIPT DE INTERACTIVIDAD -->
-    <script>
-        const featureDetails = {
-            /* VALORES DE ¿QUIÉNES SOMOS? */
-            compromiso: {
-                icon: "🎓",
-                title: "Nuestro Compromiso Educativo",
-                body: `<p>En SEDU entendemos que la seguridad no es solo evitar incidentes, sino garantizar que la actividad formativa y socioemocional de los estudiantes nunca se detenga.</p>
-                       <ul>
-                           <li><strong>Continuidad Pedagógica:</strong> Protegemos el desarrollo del año académico evitando suspensiones o evacuaciones innecesarias ante falsas alarmas.</li>
-                           <li><strong>Enfoque Preventivo:</strong> Priorizamos la detección temprana para desactivar riesgos antes de que se transformen en crisis.</li>
-                           <li><strong>Resguardo de la Subvención:</strong> Aseguramos la asistencia escolar continua, protegiendo los recursos financieros de la institución.</li>
-                       </ul>`
-            },
-            innovacion: {
-                icon: "💡",
-                title: "Innovación Tecnológica Ética",
-                body: `<p>Pioneros en la integración de Inteligencia Artificial de vanguardia adaptada a la realidad del sistema escolar en Chile.</p>
-                       <ul>
-                           <li><strong>Procesamiento Edge AI:</strong> Análisis inteligente en tiempo real directamente en la infraestructura local del colegio.</li>
-                           <li><strong>Protección de Privacidad por Diseño:</strong> Cero uso de reconocimiento facial, cumpliendo con la normativa de protección de datos (GDPR).</li>
-                           <li><strong>Visualización Táctica 3D:</strong> Gemelos digitales interactivos para coordinar respuestas inmediatas con equipos de emergencia (GOPE, Carabineros, Bomberos).</li>
-                       </ul>`
-            },
-            trabajoEquipo: {
-                icon: "👥",
-                title: "Trabajo en Equipo y Articulación",
-                body: `<p>Creemos que la tecnología sólo es efectiva cuando se conecta de manera humana e integral con todos los estamentos de la comunidad educativa.</p>
-                       <ul>
-                           <li><strong>Sinergia Multidisciplinaria:</strong> Profesionales en seguridad (OS-10), desarrolladores de IA, psicólogos y asesores legales.</li>
-                           <li><strong>Tranquilidad para Apoderados:</strong> Comunicación transparente y certezas de que los estudiantes se encuentran en entornos protegidos.</li>
-                           <li><strong>Aliado Estratégico:</strong> Respaldo forense objetivo para apoyar la toma de decisiones directiva ante la Superintendencia y Fiscalía.</li>
-                       </ul>`
-            },
-            /* CARACTERÍSTICAS DE ¿POR QUÉ ELEGIRNOS? */
-            tec: {
-                icon: "🧠",
-                title: "Tecnología Inteligente (Edge AI)",
-                body: `<p>A diferencia de los sistemas de seguridad convencionales que dependen de la nube y sufren de latencias severas, nuestra tecnología procesa el análisis directamente en el punto de origen (Edge AI).</p>
-                       <ul>
-                           <li><strong>Procesamiento Local:</strong> Opera y detecta incidentes críticos de forma continua, incluso ante caídas del servicio de internet.</li>
-                           <li><strong>Latencia Cero:</strong> Permite una alerta e intervención inmediata en tiempo real.</li>
-                           <li><strong>Reducción de Falsas Alarmas:</strong> Algoritmos entrenados para diferenciar comportamientos de riesgo reales de dinámicas habituales de recreo.</li>
-                       </ul>`
-            },
-            priv: {
-                icon: "🛡️",
-                title: "Privacidad Ética por Diseño",
-                body: `<p>Sentinel Edu está pensado desde su origen para proteger la seguridad física sin transformar el colegio en un espacio de vigilancia masiva o intrusiva.</p>
-                       <ul>
-                           <li><strong>Sin Reconocimiento Facial:</strong> El sistema identifica patrones de conducta y objetos de riesgo, no identidades individuales ni rostros.</li>
-                           <li><strong>Cumplimiento Normativo:</strong> Diseñado bajo estándares internacionales estrictos como el GDPR y la normativa chilena de protección de datos.</li>
-                           <li><strong>Respeto al Bienestar Socioemocional:</strong> Protege la libertad y espontaneidad de los estudiantes sin crear entornos persecutorios.</li>
-                       </ul>`
-            },
-            equipo: {
-                icon: "🤝",
-                title: "Equipo Multidisciplinario",
-                body: `<p>La seguridad escolar efectiva no depende únicamente de hardware o software; requiere un enfoque humano comprensivo y articulado.</p>
-                       <ul>
-                           <li><strong>Seguridad Operativa:</strong> Expertos acreditados en seguridad integral (OS-10).</li>
-                           <li><strong>Inteligencia Artificial:</strong> Especialistas en visión computacional y modelos Edge AI.</li>
-                           <li><strong>Soporte Psicosocial y Legal:</strong> Profesionales de la psicología y del derecho escolar encargados de alinear la tecnología con la convivencia y el debido proceso.</li>
-                       </ul>`
-            },
-            gemelo: {
-                icon: "🗺️",
-                title: "Gemelo Digital 3D Táctico",
-                body: `<p>Una de nuestras capacidades más innovadoras es la generación de una representación digital interactiva del establecimiento escolar.</p>
-                       <ul>
-                           <li><strong>Respuesta para Equipos de Emergencia:</strong> Facilita la coordinación táctica inmediata con instituciones como Carabineros, GOPE o Bomberos.</li>
-                           <li><strong>Ubicación Exacta:</strong> Permite visualizar en un mapa 3D el punto exacto donde ocurre un incidente en tiempo real.</li>
-                           <li><strong>Optimización de Protocolos:</strong> Mejora los planes de evacuación y manejo de crisis en infraestructura escolar compleja.</li>
-                       </ul>`
-            },
-            respaldo: {
-                icon: "📋",
-                title: "Respaldo Institucional y Forense",
-                body: `<p>Frente a incidentes graves, los equipos directivos y sostenedores suelen enfrentar una gran incertidumbre legal y administrativa.</p>
-                       <ul>
-                           <li><strong>Informes Trazables:</strong> Genera reportes forenses detallados de hechos con registro objetivo y no alterable.</li>
-                           <li><strong>Defensa ante Organismos:</strong> Proporciona evidencia clara para responder adecuadamente ante la Superintendencia de Educación o Fiscalía.</li>
-                           <li><strong>Aplicación Justa del Reglamento:</strong> Respalda la aplicación de protocolos de Convivencia Escolar basados en hechos verificables.</li>
-                       </ul>`
-            },
-            inversion: {
-                icon: "📈",
-                title: "Inversión Inteligente y Sostenible",
-                body: `<p>Sentinel Edu protege tanto el valor humano como los recursos financieros de los establecimientos educativos.</p>
-                       <ul>
-                           <li><strong>Protección de la Subvención:</strong> Evita la suspensión innecesaria de clases y resguarda la asistencia escolar, factor directo del financiamiento del establecimiento.</li>
-                           <li><strong>Continuidad Educativa:</strong> Garantiza que el proyecto pedagógico del año no sufra interrupciones provocadas por falsas alertas o mala gestión de crisis.</li>
-                           <li><strong>Meta Primer Año:</strong> Cobertura integral proyectada para 30 liceos objetivo en el sistema escolar chileno.</li>
-                       </ul>`
-            }
-        };
-
-        function openModal(key) {
-            const data = featureDetails[key];
-            if (!data) return;
-
-            document.getElementById('modalIcon').innerText = data.icon;
-            document.getElementById('modalTitle').innerText = data.title;
-            document.getElementById('modalBody').innerHTML = data.body;
-
-            document.getElementById('featureModal').classList.add('active');
-        }
-
-        function closeModal() {
-            document.getElementById('featureModal').classList.remove('active');
-        }
-
-        function closeModalOnOverlay(event) {
-            if (event.target.classList.contains('modal-overlay')) {
-                closeModal();
-            }
-        }
-    </script>
 </body>
 </html>

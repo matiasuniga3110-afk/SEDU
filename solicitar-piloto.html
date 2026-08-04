@@ -3,323 +3,302 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solicitar Piloto | SEDU</title>
+    <title>Solicitar Piloto | SEDU - Sentinel Edu</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --primary-dark: #1A4D4C;
+            --primary: #2A7E7D;
+            --primary-light: #52B5B4;
+            --accent: #FF7F50;
+            --accent-hover: #E0693F;
+            --bg-light: #F0F7F7;
+            --white: #FFFFFF;
+            --text-dark: #2C3E50;
+            --text-gray: #596A7A;
+            --shadow-sm: 0 4px 6px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 25px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
+        }
+
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            box-sizing: border-box;
         }
 
-        header {
-            background-color: #1a365d;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        header a {
-            color: white;
+        /* HEADER */
+        .site-header {
+            background-color: var(--white);
+            padding: 0.8rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             text-decoration: none;
         }
 
-        header img {
-            max-width: 120px;
-            height: auto;
-            display: block;
-            margin: 0 auto 10px;
+        .logo-img {
+            height: 48px;
+            width: 48px;
+            border-radius: 50%;
+            object-fit: cover;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 30px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .logo-text span {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-gray);
+            letter-spacing: 1px;
         }
 
-        h2 {
-            color: #1a365d;
-            margin-top: 0;
-            border-bottom: 2px solid #2b6cb0;
-            padding-bottom: 10px;
+        .btn-volver {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
         }
 
-        .alert-box {
-            background-color: #ebf8ff;
-            border-left: 4px solid #3182ce;
-            padding: 15px;
-            margin-bottom: 25px;
-            font-size: 0.9em;
+        .btn-volver:hover {
+            color: var(--accent);
         }
 
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+        /* CONTENEDOR DEL FORMULARIO */
+        .form-container {
+            max-width: 650px;
+            margin: 40px auto;
+            padding: 0 20px;
+            width: 100%;
+            flex: 1;
+        }
+
+        .form-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: var(--shadow-md);
+            border-top: 6px solid var(--accent);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-dark);
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .form-header p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* CAMPOS DEL FORMULARIO */
+        .pilot-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
         }
 
         .form-group {
             display: flex;
             flex-direction: column;
+            gap: 6px;
         }
 
-        .form-group.full-width {
-            grid-column: span 2;
+        .form-group label {
+            font-weight: 600;
+            font-size: 0.88rem;
+            color: var(--primary-dark);
         }
 
-        label {
-            font-weight: bold;
-            font-size: 0.9em;
-            margin-bottom: 5px;
-            color: #4a5568;
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
         }
 
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"],
-        input[type="date"],
-        select {
-            padding: 10px;
-            border: 1px solid #cbd5e0;
-            border-radius: 4px;
-            font-size: 0.95em;
+        .pilot-form input,
+        .pilot-form select,
+        .pilot-form textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #CBD5E1;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            background-color: #FAFAFA;
+            transition: var(--transition);
         }
 
-        input:focus, select:focus {
+        .pilot-form input:focus,
+        .pilot-form select:focus,
+        .pilot-form textarea:focus {
             outline: none;
-            border-color: #3182ce;
-            box-shadow: 0 0 0 2px rgba(49, 130, 206, 0.2);
-        }
-
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 10px;
-            font-size: 0.9em;
+            border-color: var(--primary);
+            background-color: var(--white);
+            box-shadow: 0 0 0 3px rgba(42, 126, 125, 0.15);
         }
 
         .btn-submit {
-            background-color: #2b6cb0;
-            color: white;
+            background-color: var(--accent);
+            color: var(--white);
             border: none;
-            padding: 12px 25px;
-            font-size: 1em;
-            font-weight: bold;
-            border-radius: 6px;
+            padding: 14px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
             cursor: pointer;
-            margin-top: 20px;
-            float: right;
-            transition: background 0.3s;
+            transition: var(--transition);
+            margin-top: 10px;
         }
 
         .btn-submit:hover {
-            background-color: #1a365d;
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
         }
 
-        .btn-back {
-            display: inline-block;
-            margin-bottom: 15px;
-            color: #2b6cb0;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .btn-back:hover {
-            text-decoration: underline;
-        }
-
-        .success-msg {
-            display: none;
-            background-color: #c6f6d5;
-            color: #22543d;
-            padding: 15px;
-            border-radius: 6px;
-            margin-top: 20px;
+        /* FOOTER */
+        .site-footer {
+            background-color: #113332;
+            color: var(--white);
             text-align: center;
-            font-weight: bold;
+            padding: 25px 5%;
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .form-card {
+                padding: 25px 20px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <a href="./">
-            <img src="logo.png" alt="Logo SEDU">
-            <h1>SEDU</h1>
-            <p>Sentinel Edu - Registro de Piloto</p>
+    <header class="site-header">
+        <a href="./" class="logo-container">
+            <img src="logo.png" alt="Logotipo oficial de SEDU" class="logo-img" width="48" height="48">
+            <div class="logo-text">
+                SEDU <span>SENTINEL EDU</span>
+            </div>
         </a>
+        <a href="./" class="btn-volver">&larr; Volver al inicio</a>
     </header>
 
-    <div class="container">
-        <a href="./" class="btn-back">&larr; Volver a la página principal</a>
-        <h2>Ingreso de Datos para Solicitud de Piloto</h2>
-
-        <div class="alert-box">
-            <strong>IMPORTANTE:</strong>
-            <ul style="margin: 5px 0 0 20px; padding: 0;">
-                <li>Ingrese un correo de uso frecuente para recibir la confirmación.</li>
-                <li>La solicitud debe ser realizada por un docente, directivo o representante del establecimiento.</li>
-                <li>Seleccione el colegio o liceo correspondiente de la Región Metropolitana (Santiago).</li>
-            </ul>
-        </div>
-
-        <form id="pilotoForm">
-            <div class="form-grid">
-                <div class="form-group">
-                    <label for="rut">RUT (*)</label>
-                    <input type="text" id="rut" placeholder="12.345.678-k" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="tipoParticipante">Tipo de Participante (*)</label>
-                    <select id="tipoParticipante" required>
-                        <option value="">Seleccione...</option>
-                        <option value="Directivo">Directivo / Sostenedor</option>
-                        <option value="Docente">Docente / Profesor</option>
-                        <option value="Coordinador TP">Coordinador TP / Informática</option>
-                        <option value="Otro">Otro representante</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="nombres">Nombres (*)</label>
-                    <input type="text" id="nombres" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="apellidos">Apellidos (*)</label>
-                    <input type="text" id="apellidos" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="fechaNacimiento">Fecha de Nacimiento (*)</label>
-                    <input type="date" id="fechaNacimiento" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="genero">Género (*)</label>
-                    <select id="genero" required>
-                        <option value="">Seleccione...</option>
-                        <option value="Femenino">Femenino</option>
-                        <option value="Masculino">Masculino</option>
-                        <option value="Otro">Otro / Prefiero no decir</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="correo">Correo Electrónico (*)</label>
-                    <input type="email" id="correo" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="confirmCorreo">Confirme su Correo Electrónico (*)</label>
-                    <input type="email" id="confirmCorreo" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="telefono">Teléfono Contacto (*)</label>
-                    <input type="tel" id="telefono" placeholder="+56 9 1234 5678" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="establecimiento">Indicar Establecimiento (Santiago) (*)</label>
-                    <input type="text" id="establecimiento" list="listaColegios" placeholder="Escriba para buscar su colegio o liceo..." required>
-                    <datalist id="listaColegios">
-                        <!-- Liceos Emblemáticos y Públicos -->
-                        <option value="Instituto Nacional General José Miguel Carrera (Santiago)">
-                        <option value="Liceo 1 Javiera Carrera (Santiago)">
-                        <option value="Liceo de Aplicación (Santiago)">
-                        <option value="Liceo Manuel Barros Borgoño (Santiago)">
-                        <option value="Liceo José Victorino Lastarria (Providencia)">
-                        <option value="Liceo Carmela Carvajal de Prat (Providencia)">
-                        <option value="Liceo N° 7 de Providencia">
-                        <option value="Liceo Tajamar (Providencia)">
-                        <option value="Internado Nacional Barros Arana INBA (Santiago)">
-                        <option value="Liceo Experimental Manuel de Salas (Ñuñoa)">
-                        <!-- Colegios Subvencionados y Particulares -->
-                        <option value="Colegio Saint George's College (Vitacura)">
-                        <option value="Colegio Verbo Divino (Las Condes)">
-                        <option value="Colegio Villa Maria Academy (Las Condes)">
-                        <option value="Colegio San Ignacio El Bosque (Providencia)">
-                        <option value="Colegio San Ignacio Alonso de Ovalle (Santiago)">
-                        <option value="Colegio Salesiano José Ana Muriño (San Joaquín)">
-                        <option value="Colegio Don Bosco (La Cisterna)">
-                        <option value="Liceo Industrial Eliodoro García Zegers (Santiago)">
-                        <option value="Liceo Politécnico A-24 Presidente Gabriel González Videla (Santiago)">
-                        <option value="Colegio Alicante de Maipú">
-                        <option value="Colegio San Agustín (Ñuñoa)">
-                        <option value="Colegio Palmarés (Quilicura)">
-                        <option value="Colegio Boston College (Maipú)">
-                        <option value="Liceo Bicentenario San Pedro (Pudahuel)">
-                        <option value="Liceo Bicentenario Italia (Santiago)">
-                        <option value="Otro establecimiento de Santiago (Especificar en observaciones)">
-                    </datalist>
-                </div>
-
-                <div class="form-group full-width">
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="autorizo" required>
-                        <label for="autorizo" style="font-weight: normal;">Soy representante legal/autorizado del establecimiento para solicitar este piloto.</label>
-                    </div>
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="informacion" checked>
-                        <label for="informacion" style="font-weight: normal;">Quiero recibir actualizaciones y documentación técnica de SEDU.</label>
-                    </div>
-                </div>
+    <main class="form-container">
+        <div class="form-card">
+            <div class="form-header">
+                <h1>Solicitar Piloto de Demostración</h1>
+                <p>Ingresa los datos de tu establecimiento para coordinar la implementación del sistema SEDU.</p>
             </div>
 
-            <button type="submit" class="btn-submit">Enviar Solicitud</button>
-        </form>
+            <form class="pilot-form" onsubmit="event.preventDefault(); alert('¡Muchas gracias! Tu solicitud ha sido recibida correctamente. Nos contactaremos a la brevedad.'); window.location.href='./';">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo *</label>
+                        <input type="text" id="nombre" placeholder="Ej: Maria González" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cargo">Cargo o Rol *</label>
+                        <select id="cargo" required>
+                            <option value="" disabled selected>Selecciona una opción</option>
+                            <option value="Director">Director(a) / Sostenedor(a)</option>
+                            <option value="Encargado Convivencia">Encargado(a) de Convivencia</option>
+                            <option value="Coordinador TI">Coordinador(a) IT / Tecnología</option>
+                            <option value="Docente">Docente / Inspector General</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                </div>
 
-        <div id="successMsg" class="success-msg">
-            ¡Solicitud registrada con éxito! Los datos del usuario han sido almacenados correctamente.
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Correo Institucional *</label>
+                        <input type="email" id="email" placeholder="ejemplo@colegio.cl" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono de Contacto *</label>
+                        <input type="tel" id="telefono" placeholder="+56 9 1234 5678" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="colegio">Nombre del Establecimiento Educacional *</label>
+                    <input type="text" id="colegio" placeholder="Ej: Liceo Bicentenario..." required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="comuna">Comuna / Región *</label>
+                        <input type="text" id="comuna" placeholder="Ej: Santiago, Región Metropolitana" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="matricula">Matrícula Estimada (Estudiantes)</label>
+                        <select id="matricula">
+                            <option value="" disabled selected>Selecciona un rango</option>
+                            <option value="1-300">Menos de 300 estudiantes</option>
+                            <option value="301-800">300 a 800 estudiantes</option>
+                            <option value="801-1500">800 a 1.500 estudiantes</option>
+                            <option value="1500+">Más de 1.500 estudiantes</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Detalles Adicionales o Consultas</label>
+                    <textarea id="mensaje" rows="4" placeholder="Indícanos si cuentan con sistema de cámaras actual o requerimientos específicos..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Enviar Solicitud de Piloto</button>
+            </form>
         </div>
-    </div>
+    </main>
 
-    <script>
-        document.getElementById('pilotoForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+    <footer class="site-footer">
+        <p>&copy; 2026 Sentinel Edu (SEDU). Todos los derechos reservados.</p>
+    </footer>
 
-            const correo = document.getElementById('correo').value;
-            const confirmCorreo = document.getElementById('confirmCorreo').value;
-
-            if (correo !== confirmCorreo) {
-                alert('Los correos electrónicos no coinciden.');
-                return;
-            }
-
-            // Crear objeto de usuario
-            const usuarioPiloto = {
-                rut: document.getElementById('rut').value,
-                tipoParticipante: document.getElementById('tipoParticipante').value,
-                nombres: document.getElementById('nombres').value,
-                apellidos: document.getElementById('apellidos').value,
-                fechaNacimiento: document.getElementById('fechaNacimiento').value,
-                genero: document.getElementById('genero').value,
-                correo: correo,
-                telefono: document.getElementById('telefono').value,
-                establecimiento: document.getElementById('establecimiento').value,
-                fechaRegistro: new Date().toISOString()
-            };
-
-            // Almacenar usuario en localStorage
-            let usuariosGuardados = JSON.parse(localStorage.getItem('usuarios_sedu_piloto')) || [];
-            usuariosGuardados.push(usuarioPiloto);
-            localStorage.setItem('usuarios_sedu_piloto', JSON.stringify(usuariosGuardados));
-
-            // Mostrar mensaje de éxito
-            document.getElementById('pilotoForm').reset();
-            document.getElementById('successMsg').style.display = 'block';
-
-            setTimeout(() => {
-                document.getElementById('successMsg').style.display = 'none';
-            }, 5000);
-        });
-    </script>
 </body>
 </html>
